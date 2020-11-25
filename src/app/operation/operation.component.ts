@@ -1,51 +1,38 @@
 import {Component, OnInit} from '@angular/core';
-import {FormGroup, FormBuilder} from '@angular/forms';
-import {TransfertService} from "../transfert.service";
+import { NgForm } from '@angular/forms';
+import { TransfertService } from '../transfert.service';
+
 
 @Component({
-  selector: 'app-create-transfert',
-  templateUrl: './create-transfert.component.html',
-  styleUrls: ['./create-transfert.component.css']
+  selector: 'app-operation',
+  templateUrl: './operation.component.html',
+  styleUrls: ['./operation.component.css']
 })
-export class CreateTransfertComponent implements OnInit {
+export class OperationComponent implements OnInit {
 
-  // @ts-ignore
-  transfertForm: FormGroup;
-
-  constructor(private tf: FormBuilder, private transfertService: TransfertService) {
-  }
+  constructor(private service:TransfertService) { }
 
   ngOnInit(): void {
 
-    this.transfertForm = this.tf.group({
-      nom_emetteur: [''],
-      prenom_emetteur: [''],
-      tel_emetteur: [''],
-      cin: [''],
-      nom_recepteur: [''],
-      prenom_recepteur: [''],
-      tel_recepteur: [''],
-      date: [''],
-      montant: [''],
-    });
   }
 
-  onSubmit() {
-    console.log('Tel Emetteur', this.transfertForm.value.tel_emetteur);
-    this.transfertService.transfert(
-      this.transfertForm.value.nom_emetteur,
-      this.transfertForm.value.prenom_emetteur,
-      this.transfertForm.value.tel_emetteur,
-      this.transfertForm.value.cin,
-      this.transfertForm.value.nom_recepteur,
-      this.transfertForm.value.prenom_recepteur,
-      this.transfertForm.value.tel_recepteur,
-      this.transfertForm.value.date,
-      this.transfertForm.value.montant,
-    ).subscribe(
-      (data: any) => console.log(data),
-      (error: any) => console.log(error),
-    )
+  reception(data:NgForm){
+   
+    const nom_emetteur =data.value["nom_emetteur"];
+    const prenom_emetteur  =data.value["prenom_emetteur"];
+    const tel_emetteur =data.value["tel_emetteur"];
+    const cin =data.value["cin"];
+
+    const nom_recepteur =data.value["nom_recepteur"];
+    const prenom_recepteur =data.value["prenom_recepteur"];
+    const tel_recepteur =data.value["tel_recepteur"];
+
+    const montant =data.value["montant"];
+    const date =data.value["date"];
+
+this.service.transfert(nom_emetteur, prenom_emetteur, tel_emetteur, cin, nom_recepteur, prenom_recepteur, tel_recepteur, montant, date);
+
   }
+
 
 }

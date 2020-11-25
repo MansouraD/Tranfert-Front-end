@@ -1,83 +1,73 @@
 <div class="container">
-    <fieldset >
-        <legend> Informations de l'émetteur</legend>
 
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="nom">
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="prenom">
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="téléphone">
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="cni">
-        </div>
-        
-       <!-- <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="valider">
+    <form (ngSubmit)="reception(data)" #data="ngForm" method="post">
+
+        <fieldset >
+            <legend> Informations de l'émetteur</legend>
+
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="nom" name="nom_emetteur" ngModel />
             </div>
-        -->
-
-    </fieldset>
-</div>
-
-<div class="container">
-    <fieldset>
-        <legend> Informations du recepteur </legend>
-
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="nom">
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="prenom">
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="téléphone">
-        </div>
-        
-        <div class="form-group">
-            <input type="text" class="form-control" placeholder="cni">
-        </div>
-        
-      <!--  <div class="form-group">
-                <input class="btn btn-primary" type="submit" value="valider"> 
+            
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="prenom" name="prenom_emetteur" ngModel />
             </div>
-        -->
-    </fieldset>
-</div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="téléphone" name="tel_emetteur" ngModel />
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="cni" name="cin" ngModel />
+            </div>
+
+        </fieldset>
 
 
+        <fieldset>
+            <legend> Informations du recepteur </legend>
 
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="nom" name="nom_recepteur" ngModel />
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="prenom" name="prenom_recepteur" ngModel />
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="téléphone" name="tel_recepteur" ngModel />
+            </div>
+            
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="cni" name="cni" ngModel />
+            </div>
+            
+        <!--  <div class="form-group">
+                    <input class="btn btn-primary" type="submit" value="valider"> 
+                </div>
+            -->
+        </fieldset>
 
-<div class="container">
-
-    <fieldset>
-        <legend> Informations de l'opération </legend>
+        <fieldset>
+            <legend> Informations de l'opération </legend>
+            
+            <div class="form-group">
+                <input type="number" class="form-control" name="montant" id="montant" placeholder="montant" ngModel />
+            </div>
+            
+            <div class="form-group">
+                <input type="datetime-local" name="date" id="date" ngModel>
+            </div>
+            
+        </fieldset>
         
+
         <div class="form-group">
-            <input type="number" class="form-control" name="montant" id="montant" placeholder="montant">
+            <input class="btn btn-primary" type="submit" value="valider">
         </div>
-        
-        <div class="form-group">
-            <input type="datetime-local" name="date" id="date">
-        </div>
-        
-    </fieldset>
-    
-</div>
 
+    </form>
 
-<div class="container">
-
-    <div class="form-group">
-        <input class="btn btn-primary" type="submit" value="valider">
-    </div>
 </div>
 

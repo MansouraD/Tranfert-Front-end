@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {FormsModule } from '@angular/forms';
+import {TransfertService} from "./transfert.service";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OperationComponent } from './operation/operation.component';
 import { HeaderFooterComponent } from './header-footer/header-footer.component';
+
 
 @NgModule({
   declarations: [
@@ -14,9 +16,10 @@ import { HeaderFooterComponent } from './header-footer/header-footer.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [TransfertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
